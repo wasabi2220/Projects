@@ -22,6 +22,6 @@ num_dependent=int(input("Please enter the number of dependents: ")) #Requesting 
 tax=float((income-standard_deduction-(num_dependent*dependent_deduction))*tax_rate) #Income Tax calculation in float
 
 #Print the result
-print(f"\nEnter the gross income tax: {income:.2f}") #Print the gross income input with two decimal to the screen
+print(f"\n\nEnter the gross income tax: {income:.2f}") #Print the gross income input with two decimal to the screen
 print("\nENter the number of dependets:",num_dependent) #Print the number of dependent to the screen
 print(f"\nThe income tax is ${tax:.1f}") #Print the total amount of income tax to the screen
