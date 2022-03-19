@@ -21,7 +21,7 @@ results = {"heads": 0, "tails": 0}
 #To initialize the counter to zero
 coin_flipped = 0
 
-#To set the heads ass '0' and tails as '1'
+#To set the heads as '0' and tails as '1'
 sides = list(results.keys())
 
 #To start the counting from 0 to 100 (0 to 99)
