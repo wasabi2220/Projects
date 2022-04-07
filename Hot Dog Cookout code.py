@@ -1,32 +1,66 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr  3 18:47:34 2022
+Created on Sat Apr  2 18:57:51 2022
 
+Write a program that calculates the number of packages of hot dogs and the number of packages of hot dog buns 
+needed for a cookout, with the minimum amount of leftovers.
+The program should ask the user for the number of people attending the cookout and the number of hot dogs each person will be given.
+Assume hot dogs come in packages of 10, and hot dog buns come in packages of 8.
+The program should display the following details:
+
+• The minimum number of packages of hot dogs required
+• The minimum number of packages of hot dog buns required
+• The number of hot dogs that will be left over
+• The number of hot dog buns that will be left over
+
+@supervisor: Eduardo Salcedo
 @author: willy
-"""
+@Class: COP1047C - MDC Spring 2022
+@Website information:
+    1. https://www.freecodecamp.org/news/the-python-modulo-operator-what-does-the-symbol-mean-in-python-solved/
+    2. https://www.w3schools.com/python/python_math.asp
+    3. https://realpython.com/python-math-module/
+    4. 
 
+"""
+#Import a function math for the rounding number
 import math
 
+#Declare the constant values for hot dog
+hotDog_SausagePerPackage = 10
+hotDog_BunsPerPackage = 8
 
-HOT_DOGS_PER_PACKAGE = 10
-HOT_DOGS_BUNS_PER_PACKAGE = 8
+#Read the user input for the numGuest and numHotdog
+numGuest = int(input("Number of guests: "))
+numHotdog = int(input("Number of Hot Dog per guests: "))
 
-attendees = int(input('Enter the number of guests: '))
+#Calculate total number of Hot Dog required
+numOf_hotDog = (numGuest * numHotdog)
 
-hot_dogs_per_person = int(input('Hot dogs per person: '))
+#Calculate number of package of Hot Dog sausages 
+packageOf_HotdogSausage = numOf_hotDog / hotDog_SausagePerPackage
 
+#Calculate number of package of Hot Gog buns
+packagesOf_HotdogBuns = numOf_hotDog / hotDog_BunsPerPackage
 
-required_hot_dogs = attendees * hot_dogs_per_person
-packages_of_hot_dogs = required_hot_dogs / HOT_DOGS_PER_PACKAGE
-packages_of_hot_dog_buns = required_hot_dogs / HOT_DOGS_BUNS_PER_PACKAGE
+#Calculate the remaining hot dog for buns and sausages
+leftOver_HotdogSausage = ((math.ceil(packageOf_HotdogSausage) * hotDog_SausagePerPackage) - numOf_hotDog)
+leftOver_HtodogBuns = ((math.ceil(packagesOf_HotdogBuns) * hotDog_BunsPerPackage) - numOf_hotDog)
 
-print(f"You require {math.ceil(packages_of_hot_dogs)} packs of hot dogs for the cookout.")
-print(f"You require {math.ceil(packages_of_hot_dog_buns)} packs of buns for the cookout.")
+#Display the result for each calculation
+print()
+print("Total number of Hot Dog required: ", numOf_hotDog)
+print("Number package of Hot Dog sausage required: ", math.ceil(packageOf_HotdogSausage))
+print("Number package of Hot Dog buns required:", math.ceil(packagesOf_HotdogBuns))
+print("Number of left over Hot Dog sausage: ",leftOver_HotdogSausage)
+print("Number of left over Hot Dog buns: ", leftOver_HtodogBuns)
 
-remain_hotdogs = (math.ceil(packages_of_hot_dogs) * HOT_DOGS_PER_PACKAGE) - required_hot_dogs
-if remain_hotdogs != 0:
-    print(f'You have {remain_hotdogs} left over hot dogs')
-
-remain_buns = (math.ceil(packages_of_hot_dog_buns) * HOT_DOGS_BUNS_PER_PACKAGE) - required_hot_dogs
-if remain_buns != 0:
-    print(f'You have {remain_buns} left over hot dog buns. ')
+"""
+#For display result of each result only
+print("\n\n")
+print("hotDog_Needed:", numOf_hotDog)
+print("packageOf_HotdogSausage:", packageOf_HotdogSausage)
+print("packagesOf_HotdogBuns:", packagesOf_HotdogBuns)
+print("leftOver_HotdogSausage:", leftOver_HotdogSausage)
+print("leftOver_HtodogBuns:", leftOver_HtodogBuns)
+"""
